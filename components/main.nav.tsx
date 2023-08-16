@@ -11,23 +11,22 @@ export function MainNav({
   ...props
 }: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname()
-  const params = useParams()
 
   const routes = [
     {
-      href: `/`,
+      href: `/overview`,
       label: "overview",
-      active: pathname === `/`,
+      active: pathname === `/overview`,
     },
     {
-      href: `/`,
+      href: `/billboards`,
       label: "billboards",
-      active: pathname === `/`,
+      active: pathname === `/billboards`,
     },
     {
-      href: `/`,
+      href: `/settings`,
       label: "settings",
-      active: pathname === `/`,
+      active: pathname === `/settings`,
     },
   ]
 
