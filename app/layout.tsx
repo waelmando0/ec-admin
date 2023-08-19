@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import "@/styles/globals.css"
 
 import { Metadata } from "next"
+import { ModalProvider } from "@/providers/modal-provider"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -43,21 +44,26 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        <ClerkProvider>
-          <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-          </div>
-        </ClerkProvider>
-      </body>
-    </html>
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}
+        >
+          <ClerkProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <main className="flex-1">
+                <ModalProvider />
+                {children}
+              </main>
+            </div>
+          </ClerkProvider>
+        </body>
+      </html>
+    </>
   )
 }
