@@ -4,6 +4,7 @@ specifiers:
   '@clerk/nextjs': ^4.23.2
   '@hookform/resolvers': ^3.2.0
   '@ianvs/prettier-plugin-sort-imports': ^4.1.0
+  '@prisma/client': ^5.1.1
   '@radix-ui/react-dialog': ^1.0.4
   '@radix-ui/react-label': ^2.0.2
   '@radix-ui/react-slot': ^1.0.2
@@ -25,6 +26,7 @@ specifiers:
   next-themes: ^0.2.1
   postcss: ^8.4.27
   prettier: ^2.8.8
+  prisma: ^5.1.1
   react: ^18.2.0
   react-dom: ^18.2.0
   react-hook-form: ^7.45.4
@@ -39,6 +41,7 @@ specifiers:
 dependencies:
   '@clerk/nextjs': 4.23.2_xrg6ehwkjvexm2pokwfjkyis34
   '@hookform/resolvers': 3.2.0_react-hook-form@7.45.4
+  '@prisma/client': 5.1.1_prisma@5.1.1
   '@radix-ui/react-dialog': 1.0.4_fnrvimhhml6lvqlvghdjxbhtmm
   '@radix-ui/react-label': 2.0.2_fnrvimhhml6lvqlvghdjxbhtmm
   '@radix-ui/react-slot': 1.0.2_fzrd6ivowi4azn3madm57eamia
@@ -71,6 +74,7 @@ devDependencies:
   eslint-plugin-tailwindcss: 3.13.0_tailwindcss@3.3.3
   postcss: 8.4.27
   prettier: 2.8.8
+  prisma: 5.1.1
   tailwindcss: 3.3.3
   typescript: 5.1.6
 
@@ -628,6 +632,28 @@ packages:
       picocolors: 1.0.0
       tslib: 2.6.1
     dev: true
+
+  /@prisma/client/5.1.1_prisma@5.1.1:
+    resolution: {integrity: sha512-fxcCeK5pMQGcgCqCrWsi+I2rpIbk0rAhdrN+ke7f34tIrgPwA68ensrpin+9+fZvuV2OtzHmuipwduSY6HswdA==}
+    engines: {node: '>=16.13'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 5.1.1-1.6a3747c37ff169c90047725a05a6ef02e32ac97e
+      prisma: 5.1.1
+    dev: false
+
+  /@prisma/engines-version/5.1.1-1.6a3747c37ff169c90047725a05a6ef02e32ac97e:
+    resolution: {integrity: sha512-owZqbY/wucbr65bXJ/ljrHPgQU5xXTSkmcE/JcbqE1kusuAXV/TLN3/exmz21SZ5rJ7WDkyk70J2G/n68iogbQ==}
+    dev: false
+
+  /@prisma/engines/5.1.1:
+    resolution: {integrity: sha512-NV/4nVNWFZSJCCIA3HIFJbbDKO/NARc9ej0tX5S9k2EVbkrFJC4Xt9b0u4rNZWL4V+F5LAjvta8vzEUw0rw+HA==}
+    requiresBuild: true
 
   /@radix-ui/primitive/1.0.0:
     resolution: {integrity: sha512-3e7rn8FDMin4CgeL7Z/49smCA3rFYY3Ha2rUQ7HRWFadS5iCRw08ZgVT1LaNTCNqgvrUiyczLflrVrF0SRQtNA==}
@@ -3446,6 +3472,14 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prisma/5.1.1:
+    resolution: {integrity: sha512-WJFG/U7sMmcc6TjJTTifTfpI6Wjoh55xl4AzopVwAdyK68L9/ogNo8QQ2cxuUjJf/Wa82z/uhyh3wMzvRIBphg==}
+    engines: {node: '>=16.13'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 5.1.1
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
