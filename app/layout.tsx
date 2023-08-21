@@ -4,6 +4,7 @@ import "@/styles/globals.css"
 
 import { Metadata } from "next"
 import { ModalProvider } from "@/providers/modal-provider"
+import { ToasterProvider } from "@/providers/toast-provider"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -57,6 +58,7 @@ export default function RootLayout({
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <main className="flex-1">
+                <ToasterProvider />
                 <ModalProvider />
                 {children}
               </main>
