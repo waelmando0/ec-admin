@@ -21,3 +21,4 @@ A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 - pnpm prisma init
 - pnpm prisma generate
 - pnpm prisma db push
+- pnpm prisma migrate reset
