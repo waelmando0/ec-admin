@@ -29,5 +29,5 @@ export default async function DashboardLayout({
     redirect("/")
   }
 
-  return <>{children}</>
+  return <section className="container">{children}</section>
 }

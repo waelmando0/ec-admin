@@ -43,7 +43,7 @@ export const StoreModal = () => {
 
       const res = await axios.post("/api/stores", values)
 
-      // we use assign is going to complete refresh on our page
+      // here assign is going to complete refresh on our page
       // Meaning that the store we are created after refresh is going to be 100% loaded in database
       window.location.assign(`/${res.data.id}`)
     } catch (error) {

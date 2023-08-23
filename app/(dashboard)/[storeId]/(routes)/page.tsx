@@ -1,5 +1,24 @@
-const DashboardPage = () => {
-  return <div className="container py-6">This is a Dashboard!</div>
+import prismadb from "@/lib/prismadb"
+
+interface DashboardPageProps {
+  params: { storeId: string }
+}
+
+const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
+  const store = await prismadb.store.findFirst({
+    where: {
+      id: params.storeId,
+    },
+  })
+
+  return (
+    <div className="py-4">
+      <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+        this is a Dashboard!
+      </h1>
+      <span>{store?.name}</span>
+    </div>
+  )
 }
 
 export default DashboardPage
