@@ -13,8 +13,8 @@ const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
 
   return (
     <div className="py-4">
-      <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-        this is a Dashboard!
+      <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">
+        Active store
       </h1>
       <span>{store?.name}</span>
     </div>

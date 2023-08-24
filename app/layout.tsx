@@ -55,7 +55,7 @@ export default function RootLayout({
           )}
         >
           <ClerkProvider>
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex min-h-screen flex-col fon">
               <SiteHeader />
               <main className="flex-1">
                 <ToasterProvider />
