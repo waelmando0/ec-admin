@@ -14,11 +14,11 @@ export function MainNav({
   const params = useParams()
 
   const routes = [
-    // {
-    //   href: `/overview`,
-    //   label: "overview",
-    //   active: pathname === `/overview`,
-    // },
+    {
+      href: `${params.storeId}/overview`,
+      label: "overview",
+      active: pathname === `${params.storeId}/overview`,
+    },
     // {
     //   href: `/billboards`,
     //   label: "billboards",

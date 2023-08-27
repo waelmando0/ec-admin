@@ -10,6 +10,8 @@ import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 import * as z from "zod"
 
+import { useOrigin } from "@/hooks/use-origin"
+import { ApiAlert } from "@/components/ui/api-alert"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -37,6 +39,7 @@ type SettingsFormValues = z.infer<typeof formSchema>
 const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   const params = useParams()
   const router = useRouter()
+  const origin = useOrigin()
 
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -125,6 +128,12 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
+      <Separator />
+      <ApiAlert
+        title="NEXT_PUBLIC_API_URL"
+        description={`${origin}/api/${params.storeId}`}
+        variant="public"
+      />
     </>
   )
 }
