@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useParams, useRouter } from "next/navigation"
+import { redirect, useParams, useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Store } from "@prisma/client"
 import axios from "axios"
@@ -22,6 +22,7 @@ import {
 import { Heading } from "@/components/ui/heading"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
+import { AlertModal } from "@/components/modals/alert-modal"
 
 interface SettingsFormProps {
   initialData: Store
@@ -60,8 +61,29 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
     }
   }
 
+  const onDelete = async () => {
+    try {
+      setLoading(true)
+      await axios.delete(`/api/stores/${params.storeId}`)
+      router.refresh()
+      router.push("/")
+      toast.success("Store deleted.")
+    } catch (error) {
+      toast.error("Make sure you removed all products and categories first.")
+    } finally {
+      setLoading(false)
+      setOpen(false)
+    }
+  }
+
   return (
     <>
+      <AlertModal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        onConfirm={onDelete}
+        loading={loading}
+      />
       <div className="flex items-center justify-between">
         <Heading title="Settings" description="Manage store preference" />
         <Button
