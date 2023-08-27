@@ -15,17 +15,17 @@ export function MainNav({
 
   const routes = [
     {
-      href: `${params.storeId}/overview`,
+      href: `/${params.storeId}`,
       label: "overview",
-      active: pathname === `${params.storeId}/overview`,
+      active: pathname === `/${params.storeId}`,
     },
-    // {
-    //   href: `/billboards`,
-    //   label: "billboards",
-    //   active: pathname === `/billboards`,
-    // },
     {
-      href: `${params.storeId}/settings`,
+      href: `/${params.storeId}/billboards`,
+      label: "billboards",
+      active: pathname === `/${params.storeId}/billboard`,
+    },
+    {
+      href: `/${params.storeId}/settings`,
       label: "settings",
       active: pathname === `/${params.storeId}/settings`,
     },
