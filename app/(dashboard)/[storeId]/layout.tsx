@@ -2,6 +2,7 @@ import { redirect } from "next/navigation"
 import { auth } from "@clerk/nextjs"
 
 import prismadb from "@/lib/prismadb"
+import { SiteHeader } from "@/components/site-header"
 
 export default async function DashboardLayout({
   children,
@@ -18,16 +19,19 @@ export default async function DashboardLayout({
 
   const store = await prismadb.store.findFirst({
     where: {
-      // that storeId exist and user logged in
       id: params.storeId,
       userId,
     },
   })
 
-  // if it doesn't logged in by any chance it will redirect to root
   if (!store) {
     redirect("/")
   }
 
-  return <section className="container">{children}</section>
+  return (
+    <>
+      <SiteHeader />
+      <div className="container">{children}</div>
+    </>
+  )
 }

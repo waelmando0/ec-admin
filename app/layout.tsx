@@ -9,7 +9,6 @@ import { ToasterProvider } from "@/providers/toast-provider"
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/site-header"
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +55,6 @@ export default function RootLayout({
         >
           <ClerkProvider>
             <div className="relative flex min-h-screen flex-col fon">
-              <SiteHeader />
               <main className="flex-1">
                 <ToasterProvider />
                 <ModalProvider />
