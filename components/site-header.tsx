@@ -24,10 +24,11 @@ export async function SiteHeader() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-4">
             <StoreSwitcher items={stores} />
-            <MainNav />
+            <MainNav className="hidden md:flex" />
           </div>
           <UserButton afterSignOutUrl="/" />
         </div>
+        <MainNav className="md:hidden  mb-2 flex" />
       </div>
     </header>
   )

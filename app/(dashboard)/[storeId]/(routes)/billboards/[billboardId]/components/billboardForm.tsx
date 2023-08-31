@@ -11,7 +11,6 @@ import toast from "react-hot-toast"
 import * as z from "zod"
 
 import { useOrigin } from "@/hooks/use-origin"
-import { ApiAlert } from "@/components/ui/api-alert"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -41,7 +40,6 @@ interface BillboardFormProps {
 const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   const params = useParams()
   const router = useRouter()
-  const origin = useOrigin()
 
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -72,6 +70,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
         await axios.post(`/api/${params.storeId}/billboards`, data)
       }
       router.refresh()
+      router.push(`/${params.storeId}/billboards`)
       toast.success(toastMessage)
     } catch (error) {
       toast.error("Something went wrong.")
