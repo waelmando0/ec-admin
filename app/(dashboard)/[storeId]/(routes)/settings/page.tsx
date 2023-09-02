@@ -31,7 +31,7 @@ const SettingsPage: React.FC<SettingsPageProps> = async ({ params }) => {
   }
 
   return (
-    <div className="py-4">
+    <div className="py-6">
       <div className="flex-col">
         <div className="flex-1 space-y-4">
           <SettingsForm initialData={store} />
