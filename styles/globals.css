@@ -88,5 +88,5 @@
 }
 
 .container {
-  @apply mx-auto px-4 max-w-6xl;
+  @apply mx-auto px-4 max-w-screen-2xl;
 }
