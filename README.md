@@ -1,10 +1,10 @@
 # next-template
 
-A Next.js 13 template Admin Panel with shadcn UI and Tailwind CSS.
+A Next.js 13 template Admin Panel with Shadcn UI and Tailwind CSS.
 
 ## Features
 
-- shadcn UI Primitives
+- Shadcn UI Primitives
 - Tailwind CSS
 - Fonts with `next/font`
 - Icons from [Lucide](https://lucide.dev)
