@@ -28,7 +28,7 @@ export async function SiteHeader() {
           </div>
           <UserButton afterSignOutUrl="/" />
         </div>
-        <MainNav className="md:hidden  mb-2 flex" />
+        <MainNav className="md:hidden mb-2" />
       </div>
     </header>
   )
