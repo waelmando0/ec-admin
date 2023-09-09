@@ -11,9 +11,11 @@ import toast from "react-hot-toast"
 import * as z from "zod"
 
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -102,10 +104,10 @@ const ProductForm: React.FC<ProductFormProps> = ({
           data
         )
       } else {
-        await axios.post(`/api/${params.productId}/products`, data)
+        await axios.post(`/api/${params.storeId}/products`, data)
       }
       router.refresh()
-      router.push(`/${params.productId}/products`)
+      router.push(`/${params.storeId}/products`)
       toast.success(toastMessage)
     } catch (error) {
       toast.error("Something went wrong.")
@@ -122,9 +124,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
       router.push(`/${params.storeId}/products`)
       toast.success("Product deleted.")
     } catch (error) {
-      toast.error(
-        "Make sure you removed all products using this product first."
-      )
+      toast.error("Something went wrong.")
     } finally {
       setLoading(false)
       setOpen(false)
@@ -279,6 +279,78 @@ const ProductForm: React.FC<ProductFormProps> = ({
                     </SelectContent>
                   </Select>
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="colorId"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Color</FormLabel>
+                  <Select
+                    disabled={loading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder="Select a color"
+                        />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {colors.map((color) => (
+                        <SelectItem key={color.id} value={color.id}>
+                          {color.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="isFeatured"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-4 space-y-0 rounded-md border p-4 mt-4 md:mt-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>Featured</FormLabel>
+                    <FormDescription>
+                      This product will appear on the home page
+                    </FormDescription>
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="isArchived"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-4 space-y-0 rounded-md border p-4 mt-4 md:mt-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>Archived</FormLabel>
+                    <FormDescription>
+                      This product will not appear anywhere in the store.
+                    </FormDescription>
+                  </div>
                 </FormItem>
               )}
             />
