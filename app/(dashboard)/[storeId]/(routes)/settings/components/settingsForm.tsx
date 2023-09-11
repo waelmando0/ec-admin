@@ -52,12 +52,10 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   const onSubmit = async (data: SettingsFormValues) => {
     try {
       setLoading(true)
-
       await axios.patch(`/api/stores/${params.storeId}`, data)
       router.refresh()
-
-      toast.success("Store Updated.")
-    } catch (error) {
+      toast.success("Store updated.")
+    } catch (error: any) {
       toast.error("Something went wrong.")
     } finally {
       setLoading(false)
@@ -71,7 +69,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
       router.refresh()
       router.push("/")
       toast.success("Store deleted.")
-    } catch (error) {
+    } catch (error: any) {
       toast.error("Make sure you removed all products and categories first.")
     } finally {
       setLoading(false)
@@ -88,23 +86,26 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
         loading={loading}
       />
       <div className="flex items-center justify-between">
-        <Heading title="Settings" description="Manage store preference" />
+        <Heading
+          title="Store settings"
+          description="Manage store preferences"
+        />
         <Button
-          variant="destructive"
-          size="icon"
-          onClick={() => setOpen(true)}
           disabled={loading}
+          variant="destructive"
+          size="sm"
+          onClick={() => setOpen(true)}
         >
-          <Trash className="w-4 h-4" />
+          <Trash className="h-4 w-4" />
         </Button>
       </div>
       <Separator />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 w-full"
+          className="space-y-8 w-full"
         >
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             <FormField
               control={form.control}
               name="name"
@@ -131,8 +132,8 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
       <Separator />
       <ApiAlert
         title="NEXT_PUBLIC_API_URL"
-        description={`${origin}/api/${params.storeId}`}
         variant="public"
+        description={`${origin}/api/${params.storeId}`}
       />
     </>
   )
