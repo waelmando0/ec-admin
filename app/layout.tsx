@@ -4,6 +4,7 @@ import "@/styles/globals.css"
 
 import { Metadata } from "next"
 import { ModalProvider } from "@/providers/modal-provider"
+import { ThemeProvider } from "@/providers/theme-provider"
 import { ToasterProvider } from "@/providers/toast-provider"
 
 import { siteConfig } from "@/config/site"
@@ -56,9 +57,15 @@ export default function RootLayout({
           <ClerkProvider>
             <div className="relative flex min-h-screen flex-col fon">
               <main className="flex-1">
-                <ToasterProvider />
-                <ModalProvider />
-                {children}
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="dark"
+                  enableSystem
+                >
+                  <ToasterProvider />
+                  <ModalProvider />
+                  {children}
+                </ThemeProvider>
               </main>
             </div>
           </ClerkProvider>
