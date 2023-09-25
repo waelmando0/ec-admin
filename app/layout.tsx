@@ -57,11 +57,7 @@ export default function RootLayout({
           <ClerkProvider>
             <div className="relative flex min-h-screen flex-col fon">
               <main className="flex-1">
-                <ThemeProvider
-                  attribute="class"
-                  defaultTheme="dark"
-                  enableSystem
-                >
+                <ThemeProvider attribute="class" enableSystem>
                   <ToasterProvider />
                   <ModalProvider />
                   {children}
